@@ -82,6 +82,9 @@ picam2.configure(picam2.create_video_configuration(main={"size": (640, 480)}))
 output = StreamingOutput()
 picam2.start_recording(JpegEncoder(), FileOutput(output))
 
+## https://datasheets.raspberrypi.com/camera/picamera2-manual.pdf
+## page 47 for more info
+
 try:
     address = ('', 8000)
     server = StreamingServer(address, StreamingHandler)
