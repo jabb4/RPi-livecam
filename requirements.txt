@@ -1,3 +1,4 @@
 picamera2
 python-dotenv
 django
+rpi-libcamera
