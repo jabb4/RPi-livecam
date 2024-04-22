@@ -1,9 +1,7 @@
 import multiprocessing.process
 from django.shortcuts import render
 
-import multiprocessing
 import subprocess
-from . import cameraStream
 
 def start_stream():
     process = subprocess.run(["python","cameraStream.py"])
