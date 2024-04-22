@@ -7,6 +7,7 @@ from threading import Condition
 from picamera2 import Picamera2
 from picamera2.encoders import JpegEncoder
 from picamera2.outputs import FileOutput
+from libcamera import controls
 
 PAGE = """\
 <html>
@@ -77,17 +78,21 @@ class StreamingServer(socketserver.ThreadingMixIn, server.HTTPServer):
     daemon_threads = True
 
 
-picam2 = Picamera2()
-picam2.configure(picam2.create_video_configuration(main={"size": (640, 480)}))
-output = StreamingOutput()
-picam2.start_recording(JpegEncoder(), FileOutput(output))
 
-## https://datasheets.raspberrypi.com/camera/picamera2-manual.pdf
-## page 47 for more info
+def run_stream():
+    picam2 = Picamera2()
+    picam2.configure(picam2.create_video_configuration(main={"size": (640, 480)}))
+    ### Activate autofocus
+    picam2.set_controls({"AfMode": controls.AfModeEnum.Continuous})
+    output = StreamingOutput()
+    picam2.start_recording(JpegEncoder(), FileOutput(output))
 
-try:
-    address = ('', 8000)
-    server = StreamingServer(address, StreamingHandler)
-    server.serve_forever()
-finally:
-    picam2.stop_recording()
+    ## https://datasheets.raspberrypi.com/camera/picamera2-manual.pdf
+    ## page 47 for more info
+    
+    try:
+        address = ('', 8000)
+        server = StreamingServer(address, StreamingHandler)
+        server.serve_forever()
+    finally:
+        picam2.stop_recording()
