@@ -13,9 +13,16 @@ def take_pic():
     pass
 
 def stream_view(request):
-    #stop_stream()
+    if request.method == "POST":
+        print(request)
     
     context = {
         
     }
     return render(request, "stream.html", context=context)
+
+def saved_series_view(request):
+    context = {
+        
+    }
+    return render(request, "saved.html", context=context)

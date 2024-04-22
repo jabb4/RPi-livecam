@@ -5,10 +5,7 @@
 {% endblock extra_stylesheets %}
 {% block content %}
 <div id="main">
-    <h1>Camera</h1>
-    <img src="http://192.168.10.27:8000/stream.mjpg" width="640" height="480" />
-    <form action="" method="POST">
-        <input type="submit" name="takepic" value="PIC">
-    </form>
+    <h1>Saved</h1>
+    <img src="{% static '/images/image.jpg' %}" width="640" height="480" />
 </div>
 {% endblock content %} 
