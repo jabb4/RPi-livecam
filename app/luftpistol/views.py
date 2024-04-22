@@ -5,13 +5,17 @@ import multiprocessing
 import subprocess
 from . import cameraStream
 
-def run_stream():
+def start_stream():
     process = subprocess.run(["python","cameraStream.py"])
 
-stream = multiprocessing.process(target=run_stream(), args=())
-stream.start()
+def stop_stream():
+    process = subprocess.run(["./kill_cam.sh"])
+
+def take_pic():
+    pass
 
 def stream_view(request):
+    stop_stream()
     
     context = {
         
