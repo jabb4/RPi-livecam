@@ -10,11 +10,15 @@ def stop_stream():
     process = subprocess.run(["./app/luftpistol/kill_cam.sh"])
 
 def take_pic():
-    pass
+    process = subprocess.run(["python","take_pic.py"])
 
 def stream_view(request):
-    if request.method == "POST":
-        print(request)
+    try:
+        if request.method == "POST" and request.POST["PIC"]:
+            stop_stream()
+            take_pic()
+    except KeyError:
+        pass
     
     context = {
         

@@ -7,8 +7,9 @@
 <div id="main">
     <h1>Camera</h1>
     <img src="http://192.168.10.27:8000/stream.mjpg" width="640" height="480" />
-    <form action="" method="POST">
-        <input type="submit" name="takepic" value="PIC">
+    <form action="{% url 'stream' %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" name="PIC" value="takepic">
     </form>
 </div>
 {% endblock content %} 
