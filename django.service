@@ -6,7 +6,7 @@ After=network.target
 [Service]
 Type=simple
 Restart=always
-ExecStart=/usr/bin/python3 /home/pi/rasberry-pi-camera-live/app/manage.py runserver 0.0.0.0:8080
+ExecStart=su -c "python /home/pi/rasberry-pi-camera-live/app/manage.py runserver 0.0.0.0:8080" pi
 
 [Install]
 WantedBy=multi-user.target

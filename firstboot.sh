@@ -2,13 +2,13 @@
 
 # First putt service files in the right folder
 
-cp django.service /etc/systemd/system/django.service
-cp cam.service /etc/systemd/system/cam.service
+cp django.service ~/.config/systemd/user/django.service
+cp cam.service ~/.config/systemd/user/cam.service
 
-systemctl daemon-reload
+systemctl --user daemon-reload
 
-systemctl enable cam.service
-systemctl enable django.service
+systemctl --user enable cam.service
+systemctl --user enable django.service
 
-systemctl start cam.service
-systemctl start django.service
+systemctl --user start cam.service
+systemctl --user start django.service
