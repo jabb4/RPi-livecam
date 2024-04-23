@@ -6,6 +6,9 @@
 {% block content %}
 <div id="main">
     <h1>Saved</h1>
-    <img src="{% static '/images/image.jpg' %}" width="640" height="480" />
+    <img src="{% get_static_prefix %}/images/a.jpg" width="640" height="480" />
+    {% for image in saved_images %}
+    <img src="{% get_static_prefix %}/images/{{ image.namne }}.jpg" width="640" height="480" />
+    {% endfor %}
 </div>
 {% endblock content %} 
