@@ -18,6 +18,7 @@ def stream_view(request):
         if request.method == "POST" and request.POST["PIC"]:
             stop_stream()
             time.sleep(1)
+            image_name = ""
             take_pic()
             start_stream()
     except KeyError:
