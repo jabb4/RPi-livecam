@@ -1,7 +1,7 @@
 import multiprocessing.process
 from django.shortcuts import render
 
-import models
+from . import models
 
 import subprocess
 import time
@@ -20,10 +20,17 @@ def stream_view(request):
         if request.method == "POST" and request.POST["PIC"]:
             stop_stream()
             time.sleep(1)
-            saved_images = models.saved_images.objects.get(name="defualt")
+            try:
+                saved_images = models.saved_images.objects.get(name="default")
+                print("Using existing count")
+            except:
+                saved_images = models.saved_images.objects.create(name="default")
+                saved_images.save()
+                print("Creating new count")
             saved_images.count += 1
-            image_name = f"saved_image_{saved_images.count}"
             saved_images.save()
+            image_name = f"saved_image_{saved_images.count}"
+            print(image_name)
             image = models.image.objects.create(name=f"{image_name}")
             image.save()
             take_pic(image_name)

@@ -8,6 +8,7 @@ cp django.service ~/.config/systemd/user/django.service
 cp cam.service ~/.config/systemd/user/cam.service
 
 ## Django migrations
+/usr/bin/python3 /home/pi/rasberry-pi-camera-live/app/manage.py makemigrations
 /usr/bin/python3 /home/pi/rasberry-pi-camera-live/app/manage.py migrate
 
 systemctl --user daemon-reload
