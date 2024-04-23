@@ -7,10 +7,13 @@ fi
 cp django.service ~/.config/systemd/user/django.service
 cp cam.service ~/.config/systemd/user/cam.service
 
+## Django migrations
+/usr/bin/python3 /home/pi/rasberry-pi-camera-live/app/manage.py migrate
+
 systemctl --user daemon-reload
 
-systemctl --user enable cam.service
-systemctl --user enable django.service
+systemctl --user enable cam
+systemctl --user enable django
 
-systemctl --user start cam.service
-systemctl --user start django.service
+systemctl --user start cam
+systemctl --user start django

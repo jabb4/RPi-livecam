@@ -11,7 +11,7 @@ def stop_stream():
     process = subprocess.run(["systemctl", "--user", "stop", "cam.service"])
 
 def take_pic():
-    process = subprocess.run(["python","/home/pi/rasberry-pi-camera-live/app/luftpistol/take_pic.py"])
+    process = subprocess.run(["python","/home/pi/rasberry-pi-camera-live/camera/take_pic.py"])
 
 def stream_view(request):
     try:

@@ -1,4 +1,4 @@
-# Contents of /etc/systemd/system/django.service
+# Contents of ~/.config/systemd/user/django.service
 [Unit]
 Description=Django
 After=network.target

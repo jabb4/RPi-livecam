@@ -1,4 +1,4 @@
-# Contents of /etc/systemd/system/cam.service
+# Contents of ~/.config/systemd/user/cam.service
 [Unit]
 Description=Cam
 After=network.target
@@ -6,7 +6,7 @@ After=network.target
 [Service]
 Type=simple
 Restart=on-failure
-ExecStart=/usr/bin/python3 /home/pi/rasberry-pi-camera-live/app/luftpistol/cameraStream.py
+ExecStart=/usr/bin/python3 /home/pi/rasberry-pi-camera-live/camera/cameraStream.py
 
 # Hardening
 SystemCallArchitectures=native
