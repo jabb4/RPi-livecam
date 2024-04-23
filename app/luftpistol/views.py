@@ -35,6 +35,7 @@ def stream_view(request):
             image.save()
             take_pic(image_name)
             start_stream()
+            time.sleep(1)
     except KeyError:
         pass
     
