@@ -5,8 +5,13 @@ After=network.target
 
 [Service]
 Type=simple
-Restart=always
+Restart=on-failure
 ExecStart=/usr/bin/python3 /home/pi/rasberry-pi-camera-live/app/luftpistol/cameraStream.py
 
+# Hardening
+SystemCallArchitectures=native
+MemoryDenyWriteExecute=true
+NoNewPrivileges=true
+
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target

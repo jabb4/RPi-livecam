@@ -5,8 +5,13 @@ After=network.target
 
 [Service]
 Type=simple
-Restart=always
+Restart=on-failure
 ExecStart=su -c "python /home/pi/rasberry-pi-camera-live/app/manage.py runserver 0.0.0.0:8080" pi
 
+# Hardening
+SystemCallArchitectures=native
+MemoryDenyWriteExecute=true
+NoNewPrivileges=true
+
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
