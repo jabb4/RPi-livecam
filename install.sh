@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# First putt service files in the right folder
+if [ ! -d "~/.config/systemd/user/" ]; then
+    mkdir -p ~/.config/systemd/user/
+fi
 
 cp django.service ~/.config/systemd/user/django.service
 cp cam.service ~/.config/systemd/user/cam.service
