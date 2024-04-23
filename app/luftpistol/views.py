@@ -2,12 +2,13 @@ import multiprocessing.process
 from django.shortcuts import render
 
 import subprocess
+import time
 
 def start_stream():
-    process = subprocess.run(["systemctl", "start", "cam.service"])
+    process = subprocess.run(["systemctl", "--user", "start", "cam.service"])
 
 def stop_stream():
-    process = subprocess.run(["systemctl", "stop", "cam.service"])
+    process = subprocess.run(["systemctl", "--user", "stop", "cam.service"])
 
 def take_pic():
     process = subprocess.run(["python","/home/pi/rasberry-pi-camera-live/app/luftpistol/take_pic.py"])
@@ -16,6 +17,7 @@ def stream_view(request):
     try:
         if request.method == "POST" and request.POST["PIC"]:
             stop_stream()
+            time.sleep(1)
             take_pic()
             start_stream()
     except KeyError:
