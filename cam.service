@@ -1,0 +1,12 @@
+# Contents of /etc/systemd/system/cam.service
+[Unit]
+Description=Cam
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/python3 /home/pi/raspberrypi-cam-live/app/luftpistol/cameraStream.py
+
+[Install]
+WantedBy=multi-user.target

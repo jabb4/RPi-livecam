@@ -4,13 +4,13 @@ from django.shortcuts import render
 import subprocess
 
 def start_stream():
-    process = subprocess.run(["python","./app/luftpistol/cameraStream.py"])
+    process = subprocess.run(["systemctl", "start", "cam.service"])
 
 def stop_stream():
-    process = subprocess.run(["./app/luftpistol/kill_cam.sh"])
+    process = subprocess.run(["systemctl", "stop", "cam.service"])
 
 def take_pic():
-    process = subprocess.run(["python","./app/luftpistol/take_pic.py"])
+    process = subprocess.run(["python","/home/pi/raspberypi-cam-live/app/luftpistol/take_pic.py"])
 
 def stream_view(request):
     try:
