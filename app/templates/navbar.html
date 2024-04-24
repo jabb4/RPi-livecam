@@ -1,16 +1,7 @@
 {% load static %}
 <div id="navbar">
-
-    <div id="navbar_logo">
-        <a href="{% url 'account' %}"><img id="logo" src="" alt="logo"></a>
-    </div>
-
     <div id="navbar_items">
-        {% if logged_in %}
-        <a href="{% url 'account' %}">Account</a>
-        <a href="{% url 'logout' %}">Logout</a>
-        {% else %}
-        <a href="{% url 'login' %}">Login</a>
-        {% endif %}
+        <a class="navbar_item" href="{% url 'stream' %}">STREAM</a>
+        <a class="navbar_item" href="{% url 'saved' %}">SAVED</a>
     </div>
 </div>

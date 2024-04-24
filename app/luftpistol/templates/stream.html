@@ -1,9 +1,23 @@
 {% extends "main.html" %}
 {% load static %}
 {% block extra_stylesheets %}
-<link rel="stylesheet" href="{% static '/styles/core/user_login.css' %}">
+<link rel="stylesheet" href="{% static '/styles/luftpistol/stream.css' %}">
+<script>
+    window.addEventListener("load", () => {
+    const loader = document.querySelector(".loader");
+
+    loader.classList.add("loader--hidden");
+
+    loader.addEventListener("transitionend", () => {
+        document.body.removeChild(loader);
+    });
+    });
+</script>
 {% endblock extra_stylesheets %}
 {% block content %}
+<div class="loader">
+    <p class="loader-text">PROCESSING IMAGE</p>
+</div>
 <div id="main">
     <h1>Camera</h1>
     <img src="http://192.168.10.27:8000/stream.mjpg" width="640" height="480" />
