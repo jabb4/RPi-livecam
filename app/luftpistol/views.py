@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from . import models
 
@@ -35,11 +35,11 @@ def stream_view(request):
             take_pic(image_name)
             start_stream()
             time.sleep(1)
+            return redirect("stream")
     except KeyError:
         pass
     
     context = {
-        
     }
     return render(request, "stream.html", context=context)
 

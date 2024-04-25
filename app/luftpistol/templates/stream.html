@@ -2,25 +2,15 @@
 {% load static %}
 {% block extra_stylesheets %}
 <link rel="stylesheet" href="{% static '/styles/luftpistol/stream.css' %}">
-<script>
-    window.addEventListener("load", () => {
-    const loader = document.querySelector(".loader");
-
-    loader.classList.add("loader--hidden");
-
-    loader.addEventListener("transitionend", () => {
-        document.body.removeChild(loader);
-    });
-    });
-</script>
+<script src="{% static 'js/stream.js' %}" ></script>
 {% endblock extra_stylesheets %}
 {% block content %}
 <div class="loader">
     <p class="loader-text">PROCESSING IMAGE</p>
 </div>
 <div id="main">
-    <h1>Camera</h1>
-    <img src="http://192.168.10.27:8000/stream.mjpg" width="640" height="480" />
+    <!-- <img src="http://192.168.10.27:8000/stream.mjpg" class="stream"/> -->
+    <img src="{% static '/images/a.jpg' %}" class="stream"/>
     <form action="{% url 'stream' %}" method="POST">
         {% csrf_token %}
         <input type="submit" name="PIC" value="takepic">
