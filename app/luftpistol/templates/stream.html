@@ -5,15 +5,17 @@
 <script src="{% static 'js/stream.js' %}" ></script>
 {% endblock extra_stylesheets %}
 {% block content %}
-<div class="loader">
-    <p class="loader-text">PROCESSING IMAGE</p>
+<div class="loader-div">
+    <div class="loader">
+        <p class="loader-text">PROCESSING IMAGE</p>
+    </div>
 </div>
 <div id="main">
     <!-- <img src="http://192.168.10.27:8000/stream.mjpg" class="stream"/> -->
-    <img src="{% static '/images/a.jpg' %}" class="stream"/>
+    <img src="{% static '/images/target.jpg' %}" class="stream"/>
     <form action="{% url 'stream' %}" method="POST">
         {% csrf_token %}
-        <input type="submit" name="PIC" value="takepic">
+        <input type="submit" name="PIC" value="Spare serie digitalt" class="PIC-button">
     </form>
 </div>
 {% endblock content %} 

@@ -1,6 +1,90 @@
-#main{
+#main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.saved-div {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(55, 56, 56);
+    border-radius: 50px;
+    border: 3px solid rgb(46, 46, 46);
+    padding: 50px 50px;
+    margin-top: 50px;
+    width: 550px;
+}
+
+.rightcolumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.leftcolumn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.date {
+    font-size: 27px;
+    font-weight: 600;
+}
+
+.saved-image {
+    width: 250px;
+    border-radius: 10%;
+    border: 3px solid rgb(46, 46, 46);
+}
+
+@media screen and (max-width: 780px) {
+    .saved-div {
+        width: 380px;
+    }
+
+    .date {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .saved-image {
+        width: 180px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .saved-div {
+        width: 300px;
+    }
+
+    .date {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .saved-image {
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .saved-div {
+        width: 250px;
+        padding: 25px 25px;
+        margin-top: 40px;
+    }
+
+    .date {
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .saved-image {
+        width: 100px;
+    }
 }
