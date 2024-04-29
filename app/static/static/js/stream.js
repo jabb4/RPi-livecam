@@ -1,9 +1,12 @@
-window.addEventListener("load", () => {
+document.addEventListener("DOMContentLoaded", function () {
     const loader = document.querySelector(".loader-div");
-    loader.classList.add("loader--hidden");
-    loader.addEventListener("transitionend", () => {
-        document.body.removeChild(loader);
-    });
+    var form = document.getElementById("PIC-form");
     var main = document.getElementById("main");
-    main.style.display = "flex";
+
+    form.addEventListener("submit", function (event) {
+
+        // Add a class to the message div
+        main.style.display = "none";
+        loader.classList.add("loader--show");
+    });
 });

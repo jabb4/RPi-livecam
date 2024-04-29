@@ -1,5 +1,5 @@
 #main {
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -9,6 +9,9 @@
     background: #202020;
     width: 100%;
     height: 100vh;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .loader {
@@ -32,10 +35,10 @@
     padding-right: 15px;
 }
 
-.loader--hidden {
-    display: none;
-    opacity: 0;
-    visibility: hidden;
+.loader--show {
+    display: block;
+    opacity: 100;
+    visibility: visible;
 }
 
 .loader::after {
@@ -65,8 +68,25 @@
     border: 3px solid rgb(46, 46, 46);
 }
 
+.PIC {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.PIC-description {
+    margin-bottom: 20px;
+    background-color: #333333;
+    color: #ffffff;
+    width: 200px;
+    text-align: center;
+}
+
 .PIC-button {
     margin-bottom: 75px;
+    border-radius: 15px;
+    text-align: center;
 }
 
 @media screen and (max-width: 1000px) {

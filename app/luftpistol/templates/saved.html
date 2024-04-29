@@ -5,27 +5,17 @@
 {% endblock extra_stylesheets %}
 {% block content %}
 <div id="main">
+    {% for image in saved_images %}
     <div class="saved-div">
         <div class="leftcolumn">
-            <p class="date">2024-04-14</p>
+            <p class="date">{{image}}</p>
+            <p class="description">{{image.description}}</p>
         </div>
         <div class="rightcolumn">
-            <img src="{% get_static_prefix %}images/target.jpg" class="saved-image"/>
+            <img src="{% get_static_prefix %}images/{{ image.name }}.jpg" class="saved-image"/>
         </div>
     </div>
-    <div class="saved-div">
-        <div class="leftcolumn">
-            <p class="date">2024-04-14</p>
-        </div>
-        <div class="rightcolumn">
-            <img src="{% get_static_prefix %}images/target.jpg" class="saved-image"/>
-        </div>
-    </div>
-    
-    
+    {% endfor %}
+
 </div>
 {% endblock content %}
-
-<!-- {% for image in saved_images %}
-    <img src="{% get_static_prefix %}images/{{ image.name }}.jpg" width="640" height="480" />
-    {% endfor %} -->

@@ -16,8 +16,8 @@ def take_pic(image_name):
 
 def stream_view(request):
     try:
-        if request.method == "POST" and request.POST["PIC"]:
-            stop_stream()
+        if request.method == "POST" and request.POST["PIC"] and request.POST["PIC-description"]:
+            #stop_stream()
             time.sleep(1)
             try:
                 saved_images = models.saved_images.objects.get(name="default")
@@ -29,11 +29,11 @@ def stream_view(request):
             saved_images.count += 1
             saved_images.save()
             image_name = f"saved_image_{saved_images.count}"
-            print(image_name)
-            image = models.image.objects.create(name=f"{image_name}")
+            image_description = request.POST["PIC-description"]
+            image = models.image.objects.create(name=image_name, description=image_description)
             image.save()
-            take_pic(image_name)
-            start_stream()
+            #take_pic(image_name)
+            #start_stream()
             time.sleep(1)
             return redirect("stream")
     except KeyError:
