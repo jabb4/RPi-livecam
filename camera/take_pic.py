@@ -6,7 +6,7 @@ import sys
 image_name = sys.argv[1]
 
 picam2 = Picamera2()
-capture_config = picam2.create_still_configuration()
+capture_config = picam2.create_still_configuration(main={"size": (1000, 1000)})
 picam2.start(show_preview=False)
 ### Activate autofocus
 picam2.set_controls({"AfMode": controls.AfModeEnum.Continuous})

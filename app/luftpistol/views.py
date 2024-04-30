@@ -45,7 +45,7 @@ def stream_view(request):
 
 def saved_series_view(request):
 
-    saved_images = models.image.objects.all()
+    saved_images = models.image.objects.all().order_by("-creation_time")
 
     context = {
         "saved_images": saved_images
