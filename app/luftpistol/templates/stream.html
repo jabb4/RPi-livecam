@@ -12,7 +12,6 @@
 </div>
 <div id="main">
     <img src="http://192.168.10.27:8000/stream.mjpg" class="stream"/>
-    <img src="{% static '/images/target.jpg' %}" class="stream"/>
     <form action="{% url 'stream' %}" method="POST" id="PIC-form">
         {% csrf_token %}
         <div class="PIC">
