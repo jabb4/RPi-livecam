@@ -13,6 +13,8 @@ cp cam.service ~/.config/systemd/user/cam.service
 
 systemctl --user daemon-reload
 
+loginctl enable-linger pi
+
 systemctl --user enable cam
 systemctl --user enable django
 
