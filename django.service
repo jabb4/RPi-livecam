@@ -19,4 +19,5 @@ MemoryDenyWriteExecute=true
 NoNewPrivileges=true
 
 [Install]
-WantedBy=multi-user.target
+# https://unix.stackexchange.com/questions/666509/systemd-service-does-not-start-wantedby-multi-user-target
+WantedBy=default.target
