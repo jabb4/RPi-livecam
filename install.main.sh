@@ -22,3 +22,4 @@ systemctl --user start cam
 systemctl --user start django
 
 chmod +x uninstall.sh
+chmod +x install.nginx.sh

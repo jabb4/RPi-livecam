@@ -13,7 +13,7 @@ server {
     }
 
     location /static/static/ {
-        root /home/pi/rasberry-pi-camera-live/app/static/static/;
+        alias /home/pi/rasberry-pi-camera-live/app/static/static/;
     }
 
 }
