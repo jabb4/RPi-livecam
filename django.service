@@ -1,17 +1,26 @@
 # Contents of ~/.config/systemd/user/django.service
+# https://docs.gunicorn.org/en/latest/deploy.html
 [Unit]
-Description=Django
+Description=gunicorn daemon
+Requires=gunicorn.socket
 After=network.target
 
 [Service]
-Type=simple
+Type=notify
+# the specific user that our service will run as
+User=pi
+Group=pi
+# another option for an even more restricted service is
+# DynamicUser=yes
+# see http://0pointer.net/blog/dynamic-users-with-systemd.html
+RuntimeDirectory=gunicorn
+WorkingDirectory=/home/pi/rasberry-pi-camera-live/app
+ExecStart=/usr/bin/gunicorn --workers 2 --bind 0.0.0.0:8080 app.wsgi
+ExecReload=/bin/kill -s HUP $MAINPID
 Restart=on-failure
-ExecStart=/usr/bin/python3 /home/pi/rasberry-pi-camera-live/app/manage.py runserver 0.0.0.0:8080
-
-# Hardening
-SystemCallArchitectures=native
-MemoryDenyWriteExecute=true
-NoNewPrivileges=true
+KillMode=mixed
+TimeoutStopSec=5
+PrivateTmp=true
 
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target
