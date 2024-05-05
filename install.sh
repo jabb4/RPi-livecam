@@ -21,4 +21,4 @@ systemctl --user enable django
 systemctl --user start cam
 systemctl --user start django
 
-chmod +x unininstall.sh
+chmod +x uninstall.sh
