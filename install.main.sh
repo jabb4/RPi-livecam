@@ -1,7 +1,5 @@
 #!/bin/bash
 
-pip install -r /home/pi/rasberry-pi-camera-live/requirements.txt
-
 if [ ! -d "~/.config/systemd/user/" ]; then
     mkdir -p ~/.config/systemd/user/
 fi
@@ -25,5 +23,3 @@ systemctl --user start django
 
 chmod +x uninstall.sh
 chmod +x install.nginx.sh
-
-./install.nginx.sh

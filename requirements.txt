@@ -1,4 +1,3 @@
-picamera2
 python-dotenv
 django
 gunicorn
