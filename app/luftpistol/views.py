@@ -33,8 +33,9 @@ def stream_view(request):
             image = models.image.objects.create(name=image_name, description=image_description)
             image.save()
             take_pic(image_name)
+            time.sleep(2)
             start_stream()
-            time.sleep(1)
+            time.sleep(2)
             return redirect("stream")
     except KeyError:
         pass
