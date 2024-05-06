@@ -1,6 +1,4 @@
 ### NEEDS TO BE FIXED!
-user pi;
-
 upstream server_django {
     server 0.0.0.0:8080;
 }
