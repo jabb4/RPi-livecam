@@ -1,7 +1,5 @@
 #!/bin/bash
 
-sudo apt install nginx
-
 sudo rm -rf /etc/nginx/sites-available/default
 sudo rm -rf /etc/nginx/sites-enabled/default
 

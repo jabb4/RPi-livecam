@@ -2,10 +2,13 @@
 
 
 
-sudo apt install -y python3-pip python3-picamera2 git
+sudo apt install -y python3-pip python3-picamera2 git nginx
 
-## installera python requierments!
+pip install -r requierments.txt --break-system-packages
 
+chmod +x install.main.sh
 
+./install.main.sh
+./install.nginx.sh
 
 ## Gå in och ändra i /etc/nginx/nginx.conf, ändra user www-data till pi
