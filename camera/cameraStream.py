@@ -5,7 +5,7 @@ from http import server
 from threading import Condition
 
 from picamera2 import Picamera2
-from picamera2.encoders import JpegEncoder
+from picamera2.encoders import MJPEGEncoder, Quality
 from picamera2.outputs import FileOutput
 from libcamera import controls
 
@@ -81,9 +81,10 @@ class StreamingServer(socketserver.ThreadingMixIn, server.HTTPServer):
 picam2 = Picamera2()
 picam2.configure(picam2.create_video_configuration(main={"size": (1000, 1000)}))
 ### Activate autofocus
-picam2.set_controls({"AfMode": controls.AfModeEnum.Continuous})
+picam2.set_controls()
+picam2.set_controls({"AfMode": controls.AfModeEnum.Continuous, "FrameDurationLimits": (100000, 100000), "NoiseReductionMode":  controls.draft.NoiseReductionModeEnum.Fast})
 output = StreamingOutput()
-picam2.start_recording(JpegEncoder(), FileOutput(output))
+picam2.start_recording(MJPEGEncoder(), FileOutput(output), quality=Quality.LOW)
 
 ## https://datasheets.raspberrypi.com/camera/picamera2-manual.pdf
 ## page 47 for more info

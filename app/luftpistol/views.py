@@ -18,7 +18,7 @@ def stream_view(request):
     try:
         if request.method == "POST" and request.POST["PIC"] and request.POST["PIC-description"]:
             stop_stream()
-            time.sleep(1)
+            time.sleep(3)
             try:
                 saved_images = models.saved_images.objects.get(name="default")
                 print("Using existing count")
@@ -33,7 +33,7 @@ def stream_view(request):
             image = models.image.objects.create(name=image_name, description=image_description)
             image.save()
             take_pic(image_name)
-            time.sleep(2)
+            time.sleep(0.5)
             start_stream()
             time.sleep(2)
             return redirect("stream")

@@ -6,6 +6,7 @@ After=network.target
 [Service]
 Type=simple
 Restart=on-failure
+ExecStartPre=/usr/bin/sleep 8
 ExecStart=/usr/bin/python3 /home/pi/rasberry-pi-camera-live/camera/cameraStream.py
 
 # Hardening
