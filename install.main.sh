@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo echo 2>/dev/null
+
 if [ ! -d "~/.config/systemd/user/" ]; then
     mkdir -p ~/.config/systemd/user/
 fi
@@ -21,5 +23,13 @@ systemctl --user enable django
 systemctl --user start cam
 systemctl --user start django
 
-chmod +x uninstall.sh
-chmod +x install.nginx.sh
+## Nginx
+sudo rm -rf /etc/nginx/sites-available/default
+sudo rm -rf /etc/nginx/sites-enabled/default
+
+sudo cp /home/pi/rasberry-pi-camera-live/nginx_proxy /etc/nginx/sites-available/django
+sudo ln -s /etc/nginx/sites-available/django /etc/nginx/sites-enabled/
+
+sudo systemctl restart nginx
+
+echo "Installation complete!"
