@@ -1,4 +1,3 @@
-### NEEDS TO BE FIXED!
 upstream server_django {
     server 0.0.0.0:8080;
 }
