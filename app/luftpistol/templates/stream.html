@@ -7,7 +7,7 @@
 {% block content %}
 <div class="loader-div">
     <div class="loader">
-        <p class="loader-text">PROCESSING IMAGE</p>
+        <p class="loader-text">PROCESSING PICTURE</p>
     </div>
 </div>
 <div id="main">
@@ -15,8 +15,8 @@
     <form action="{% url 'stream' %}" method="POST" id="PIC-form">
         {% csrf_token %}
         <div class="PIC">
-            <input type="text" name="PIC-description" placeholder="Beskriv din serie" required class="PIC-description">
-            <input type="submit" name="PIC" value="Spare serie digitalt" class="PIC-button">
+            <input type="text" name="PIC-description" placeholder="Add a description" required class="PIC-description">
+            <input type="submit" name="PIC" value="Save a picutre" class="PIC-button">
         </div>
     </form>
 </div>
